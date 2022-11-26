@@ -1,0 +1,581 @@
+!git clone https://github.com/IBM-EPBL/IBM-Project-50129-1660894462.git
+fatal: destination path 'IBM-Project-50129-1660894462' already exists and is not an empty directory.
+from google.colab import drive
+drive.mount('/content/drive')
+Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
+!pip install flask-ngrok
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: flask-ngrok in /usr/local/lib/python3.7/dist-packages (0.0.25)
+Requirement already satisfied: requests in /usr/local/lib/python3.7/dist-packages (from flask-ngrok) (2.23.0)
+Requirement already satisfied: Flask>=0.8 in /usr/local/lib/python3.7/dist-packages (from flask-ngrok) (1.1.4)
+Requirement already satisfied: Jinja2<3.0,>=2.10.1 in /usr/local/lib/python3.7/dist-packages (from Flask>=0.8->flask-ngrok) (2.11.3)
+Requirement already satisfied: itsdangerous<2.0,>=0.24 in /usr/local/lib/python3.7/dist-packages (from Flask>=0.8->flask-ngrok) (1.1.0)
+Requirement already satisfied: click<8.0,>=5.1 in /usr/local/lib/python3.7/dist-packages (from Flask>=0.8->flask-ngrok) (7.1.2)
+Requirement already satisfied: Werkzeug<2.0,>=0.15 in /usr/local/lib/python3.7/dist-packages (from Flask>=0.8->flask-ngrok) (1.0.1)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.7/dist-packages (from Jinja2<3.0,>=2.10.1->Flask>=0.8->flask-ngrok) (2.0.1)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests->flask-ngrok) (1.24.3)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests->flask-ngrok) (2022.9.24)
+Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.7/dist-packages (from requests->flask-ngrok) (2.10)
+Requirement already satisfied: chardet<4,>=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests->flask-ngrok) (3.0.4)
+!pip install pyngrok==4.1.1
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: pyngrok==4.1.1 in /usr/local/lib/python3.7/dist-packages (4.1.1)
+Requirement already satisfied: future in /usr/local/lib/python3.7/dist-packages (from pyngrok==4.1.1) (0.16.0)
+Requirement already satisfied: PyYAML in /usr/local/lib/python3.7/dist-packages (from pyngrok==4.1.1) (6.0)
+!ngrok authtoken 23Jg2oDy2N9PJD3njx9iWFHSfCs_3J7KXYfQXtzxHX3a5digi
+Authtoken saved to configuration file: /root/.ngrok2/ngrok.yml
+x = '''
+ 
+ 
+ 
+ 	 
+ 	CKD Prediction 
+ 	
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&dis play=swap" rel="stylesheet"> 
+ 	 
+
+body:before { 
+content: ''; 
+position: fixed; 
+  width: 100vw;  	
+  height: 100vh;  	
+  background-image: url({{url_for('static',filename='images/ckd.jpg')}});
+  background-position: center center;  	
+  background-repeat: no-repeat;  	
+  background-attachment: fixed;  	
+  -webkit-background-size: cover;  	
+  background-size: cover; 
+  -webkit-filter: blur(10px);  	
+  -moz-filter: blur(10px);  	
+  filter: blur(10px); 
+} 
+
+ 
+ 
+ 	
+ 
+        
+CHRONIC KIDNEY DISEASE PREDICTOR
+
+        
+Chronic Kidney Disease prediction is one of the most important issues in healthcare analytics. 10
+
+% of the population worldwide is affected by chronic kidney disease (CKD), and millions die each year because they do not have access to affordable treatment. It is essential to check if you have CKD or not. Find out NOW!
+	
+        
+Take our CKD test now!!
+
+ 
+ 	
+ 
+ 
+ 
+'''
+file3 = open("index.html", "w")
+file3.write(x)
+file3.close()
+f = '''
+</span>
+
+  
+    CKD Prediction Form
+    
+    
+    
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: black
+      }
+      h1 {
+      margin: 0;
+      font-weight: 400;
+      font-family: sans-serif;
+      font-weight: bolder;
+
+      }
+      h3 {
+      margin: 12px 0;
+      color: black;
+      }
+      .main-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;  	
+      background-image: url({{url_for('static',filename='images/ckd.jpg')}}); 
+      height: 100%; 
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;  
+    }
+      form {
+      width: 100%;
+      padding: 20px;
+      }
+      fieldset {
+      border: none;
+      border-top: 1px solid black;
+      }
+      .account-details, .personal-details {
+      display: block;
+      flex-wrap: wrap;
+      /*justify-content: space-between;*/
+      }
+      .account-details >div, .personal-details >div >div {
+        
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      }
+      .account-details >div, .personal-details >div, input, label {
+      width: 100%;
+      }
+      label {
+      padding: 0 5px;
+      text-align: right;
+      vertical-align: middle;
+      }
+      input {
+      padding: 5px;
+      vertical-align: middle;
+      }
+      .checkbox {
+      margin-bottom: 10px;
+      }
+      select, .children, .gender, .bdate-block {
+      width: calc(100% + 26px);
+      padding: 5px 0;
+      }
+      select {
+      background: transparent;
+      }
+      .gender input {
+      width: auto;
+      } 
+      .gender label {
+      padding: 0 5px 0 0;
+      } 
+      .bdate-block {
+      display: flex;
+      justify-content: space-between;
+      }
+      .birthdate select.day {
+      width: 35px;
+      }
+      .birthdate select.mounth {
+      width: calc(100% - 94px);
+      }
+      .birthdate input {
+      width: 38px;
+      vertical-align: unset;
+      }
+      .checkbox input, .children input {
+      width: auto;
+      margin: -2px 10px 0 0;
+      }
+      button {
+      width: 100%;
+      padding: 10px 0;
+      margin: 10px auto;
+      border-radius: 5px; 
+      border: none;
+      background: red; 
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+      button:hover {
+      background: red;
+      opacity: 0.4;
+      }
+      @media (min-width: 568px) {
+      .account-details >div, .personal-details >div {
+      width: 50%;
+      }
+      label {
+      width: 40%;
+      }
+      input {
+      width: 60%;
+      }
+      select, .children, .gender, .bdate-block {
+      width: calc(60% + 16px);
+      }
+      }
+    
+  
+  
+    
+
+    
+      
+ENTER YOUR DETAILS
+
+      
+        
+          
+Personal Details
+
+        
+        
+
+          
+Name
+
+          
+          
+
+            &nbsp &nbsp Gender
+            
+
+              
+              Male
+              
+              Female
+            
+
+          
+
+          
+          
+Age
+
+         
+        
+
+       
+      
+        
+          
+Medical Details
+
+        
+        
+
+          
+
+            
+Blood Pressure
+
+            
+Specific Gravity
+
+            
+Albumin
+
+            
+Sugar
+
+            
+
+              &nbsp &nbsp How about RBC's?
+              
+
+                
+                Normal
+                
+                Abnormal
+              
+
+            
+
+            
+
+              &nbsp &nbsp Pus Cell
+              
+
+                
+                Normal
+                
+                Abnormal
+              
+
+            
+
+            
+
+              &nbsp &nbsp Any clumps in your Puss cells?
+              
+
+                
+                Present
+                
+                Not Present
+              
+
+            
+
+            
+
+              &nbsp &nbsp Bacteria?
+              
+
+                
+                Present
+                
+                Not Present
+              
+
+            
+
+            
+Blood Glucose Random
+ 
+            
+Blood Urea
+
+            
+Serum Creatinine
+
+            
+Sodium
+
+            
+Potassium
+
+            
+Hemoglobin
+
+            
+Packed Cell Volume
+
+            
+WBC Count
+
+            
+RBC Count
+
+            
+
+              &nbsp &nbsp Do you have hypertension
+              
+
+                
+                Yes
+                
+                No
+              
+
+            
+
+            
+
+              &nbsp &nbsp Do you have Diabetes Mellitus?
+              
+
+                
+                Yes
+                
+                No
+              
+
+            
+
+            
+
+              &nbsp &nbsp Do you have CAD?
+              
+
+                
+                Yes
+                
+                No
+              
+
+            
+
+            
+
+              &nbsp &nbsp How's your apetite?
+              
+
+                
+                Good
+                
+                Poor
+              
+
+            
+
+            
+
+              &nbsp &nbsp Do you have Pedal Edema?
+              
+
+                
+                Yes
+                
+                No
+              
+
+            
+
+            
+
+              &nbsp &nbsp Do you have Anaemia?
+              
+
+                
+                Yes
+                
+                No
+              
+
+            
+
+          
+
+        
+
+      
+      
+    
+    
+ 
+  
+
+'''
+file1 = open("form.html", "w")
+file1.write(f)
+file1.close()
+r = '''
+ 
+ 
+ 
+ 	 
+ 	Results 
+ 	
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&dis play=swap" rel="stylesheet"> 
+ 	 
+
+body:before { 
+content: ''; 
+position: fixed; 
+  width: 100vw;  	
+  height: 100vh;  	
+  background-image: url({{url_for('static',filename='images/ckd.jpg')}});
+  background-position: center center;  	
+  background-repeat: no-repeat;  	
+  background-attachment: fixed;  	
+  -webkit-background-size: cover;  	
+  background-size: cover; 
+  -webkit-filter: blur(10px);  	
+  -moz-filter: blur(10px);  	
+  filter: blur(10px); 
+} 
+
+ 
+ 
+ 	
+ 
+        
+CHRONIC KIDNEY DISEASE PREDICTOR
+
+        
+{{ data }}
+
+
+		
+        
+
+
+
+
+
+
+
+
+        
+Take CKD test again!!
+
+
+ 	
+ 
+ 
+ 
+'''
+file2 = open("result.html", "w")
+file2.write(r)
+file2.close()
+#importing libraries
+import os
+import numpy as np
+import flask
+import pickle
+from flask import Flask, render_template, request
+from flask_ngrok import run_with_ngrok
+import requests
+
+# NOTE: you must manually set API_KEY below using information retrieved from your IBM Cloud account.
+API_KEY = "xsc0DgO5B50sSt04GVW3Lnrcm1Bou0Bn9oFqlEK7g01N"
+token_response = requests.post('https://iam.cloud.ibm.com/identity/token', data={"apikey":
+ API_KEY, "grant_type": 'urn:ibm:params:oauth:grant-type:apikey'})
+mltoken = token_response.json()["access_token"]
+
+header = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + mltoken}
+
+
+
+#model = pickle.load(open('model.pkl', 'rb'))
+#creating instance of the class
+app=Flask(__name__, template_folder="/content/")
+run_with_ngrok(app)
+
+#to tell flask what url shoud trigger the function index()
+@app.route('/')
+def man():
+    return flask.render_template('index.html')
+@app.route('/form.html')
+def forw():
+    return flask.render_template('form.html')    
+
+@app.route('/predict',methods = ['POST'])
+def home():
+    x=[param for param in request.form.values()]  
+    x=[float(p) for p in x[2:]]
+    print(x)  
+    #x = [[65.0, 70.0, 1.01, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 93.0, 66.0, 1.6, 137.0, 4.5, 11.6, 23.0, 69.0, 17.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]]
+    lis = [['age', 'blood_pressure', 'specific_gravity', 'albumin', 'sugar',
+       'red_blood_cells', 'pus_cell', 'pus_cell_clumps', 'bacteria',
+       'blood_glucose_random', 'blood_urea', 'serum_creatinine', 'sodium',
+       'potassium', 'hemoglobin', 'packed_cell_volume',
+       'white_blood_cell_count', 'red_blood_cell_count', 'hypertension',
+       'diabetesmellitus', 'coronary_artery_disease', 'appetite','pedal_edema','anemia']]
+    payload_scoring = {"input_data": [{"field": lis, "values": [x]}]}
+    response_scoring = requests.post('https://us-south.ml.cloud.ibm.com/ml/v4/deployments/f4af460b-49e4-4b53-9c7a-25929a2729b8/predictions?version=2022-11-24', json=payload_scoring,
+    headers={'Authorization': 'Bearer ' + mltoken})
+    
+    pred = response_scoring.json() 
+    p = pred['predictions'][0]['values'][0][0]
+    print(p)
+    if int(p)== 0:
+      prediction ='YOU HAVE CHRONIC KIDNEY DISEASE'
+    else:
+      prediction ='YOU DON\'T HAVE CHRONIC KIDNEY DISEASE'           
+    return render_template('result.html', data=prediction)
+    
+if __name__ == "__main__":
+	app.run()
+ * Serving Flask app "__main__" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Running on http://22b7-35-230-96-3.ngrok.io
+ * Traffic stats available on http://127.0.0.1:4040
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2022 09:31:06] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2022 09:31:06] "GET /static/styles/logincss.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2022 09:31:07] "GET /static/images/ckd.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2022 09:31:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2022 09:31:09] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2022 09:31:09] "GET /static/styles/logincss.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [25/Nov/2022 09:31:12] "GET /static/images/ckd.jpg HTTP/1.1" 200 -
